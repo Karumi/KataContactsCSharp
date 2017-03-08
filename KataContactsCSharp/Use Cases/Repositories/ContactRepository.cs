@@ -22,7 +22,7 @@ namespace KataContactsCSharp
 			return Datasource.GetAll();
 		}
 
-		internal Task Add(Contact contact)
+		internal Task<Contact> Add(Contact contact)
 		{
 			return Datasource.Add(contact);
 		}

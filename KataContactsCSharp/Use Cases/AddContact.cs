@@ -16,7 +16,7 @@ namespace KataContactsCSharp
 		{
 		}
 
-		public Task Execute(Contact contact)
+		public Task<Contact> Execute(Contact contact)
 		{
 			return ContactRepository.Add(contact);
 		}

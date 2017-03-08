@@ -8,9 +8,12 @@ namespace KataContactsCSharp
 	{
 		List<Contact> items { get; set; } = new List<Contact>();
 
-		Task IDatasource.Add(Contact contact)
-		{	
-			return Task.Run(() => items.Add(contact));
+		Task<Contact> IDatasource.Add(Contact contact)
+		{
+			return Task.Run(() => {
+				items.Add(contact); 
+				return contact;
+			});
 		}
 
 		Task<Contact> IDatasource.Get(int index)
