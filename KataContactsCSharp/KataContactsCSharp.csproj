@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -28,8 +27,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Use Cases\GetContacts.cs" />
+    <Compile Include="ContactDataSource.cs" />
+    <Compile Include="Use Cases\GetContactDetail.cs" />
+    <Compile Include="Use Cases\AddContact.cs" />
+    <Compile Include="Use Cases\Entities\Contact.cs" />
+    <Compile Include="Use Cases\Repositories\ContactRepository.cs" />
+    <Compile Include="Use Cases\Repositories\IDatasource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Use Cases\" />
+    <Folder Include="DataSources\" />
+    <Folder Include="Use Cases\Entities\" />
+    <Folder Include="Use Cases\Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
