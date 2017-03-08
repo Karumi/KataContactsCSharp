@@ -6,7 +6,7 @@ namespace KataContactsCSharp
 {
 	class ContactDataSource : IDatasource
 	{
-		List<Contact> items { get; set; }
+		List<Contact> items { get; set; } = new List<Contact>();
 
 		Task IDatasource.Add(Contact contact)
 		{	

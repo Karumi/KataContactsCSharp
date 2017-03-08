@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
+[assembly: InternalsVisibleTo("KataContactsCSharp.Tests")]
 namespace KataContactsCSharp
 {
 	public class GetContacts

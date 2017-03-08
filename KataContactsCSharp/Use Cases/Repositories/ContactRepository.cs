@@ -8,6 +8,15 @@ namespace KataContactsCSharp
 	{
 		IDatasource Datasource { get; set; }
 
+		public ContactRepository(IDatasource Datasource)
+		{
+			this.Datasource = Datasource;
+		}
+
+		internal ContactRepository(): this(new ContactDataSource())
+		{
+		}
+
 		internal Task<List<Contact>> GetAll()
 		{
 			return Datasource.GetAll();
