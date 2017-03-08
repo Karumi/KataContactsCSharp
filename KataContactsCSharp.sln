@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataContactsCSharp.Droid", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataContactsCSharp.iOS", "iOS\KataContactsCSharp.iOS.csproj", "{9F41F56B-1BF5-4187-8687-CE6B63EDA2B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataContactsCSharp.Tests", "KataContactsCSharp.Tests\KataContactsCSharp.Tests.csproj", "{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +55,17 @@ Global
 		{9F41F56B-1BF5-4187-8687-CE6B63EDA2B1}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{9F41F56B-1BF5-4187-8687-CE6B63EDA2B1}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{9F41F56B-1BF5-4187-8687-CE6B63EDA2B1}.Debug|iPhone.Build.0 = Debug|iPhone
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Release|iPhone.Build.0 = Release|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{BDF38173-46D9-4E1E-A2B2-B8C4089E2BFF}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
