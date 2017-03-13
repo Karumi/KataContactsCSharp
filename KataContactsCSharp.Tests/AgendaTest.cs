@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.Contracts;
+using System.Threading.Tasks;
 using NUnit.Framework;
 namespace KataContactsCSharp.Tests
 {
@@ -9,7 +10,7 @@ namespace KataContactsCSharp.Tests
 		const string ANY_LAST_NAME = "Gomez Sanchez";
 		const string ANY_PHONE_NUMBER = "666666666";
 
-		internal ContactDataSource contactDatasource { get; private set; }
+		ContactDataSource contactDatasource { get; set; }
 
 		[SetUp]
 		public void Init()
@@ -19,7 +20,7 @@ namespace KataContactsCSharp.Tests
 
 
 		[Test]
-		public async void shouldReturnAnEmptyListOfContactsIfTheAgendaIsEmpty()
+		public async Task shouldReturnAnEmptyListOfContactsIfTheAgendaIsEmpty()
 		{
 			var getContacs = givenAnGetContactsUseCase();
 
@@ -29,7 +30,7 @@ namespace KataContactsCSharp.Tests
 		}
 
 		[Test]
-		public async void shouldReturnTheContactCreatedOnContactAdded()
+		public async Task shouldReturnTheContactCreatedOnContactAdded()
 		{
 			var addContact = givenAnAddContactUseCase();
 			var contactToAdd = givenAnyContact();
@@ -40,7 +41,7 @@ namespace KataContactsCSharp.Tests
 		}
 
 		[Test]
-		public async void shouldReturnTheNewContactAfterTheCreationUsingGetContacts()
+		public async Task shouldReturnTheNewContactAfterTheCreationUsingGetContacts()
 		{
 			var getContacs = givenAnGetContactsUseCase();
 			var addContact = givenAnAddContactUseCase();
