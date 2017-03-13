@@ -15,10 +15,23 @@ namespace KataContactsCSharp.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIBarButtonItem buttonAdd { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITableView tableView { get; set; }
+
+        [Action ("buttonAddOnClick:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void buttonAddOnClick (UIKit.UIBarButtonItem sender);
 
         void ReleaseDesignerOutlets ()
         {
+            if (buttonAdd != null) {
+                buttonAdd.Dispose ();
+                buttonAdd = null;
+            }
+
             if (tableView != null) {
                 tableView.Dispose ();
                 tableView = null;

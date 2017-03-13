@@ -48,5 +48,9 @@ namespace KataContactsCSharp.iOS
 		{
 			throw new NotImplementedException();
 		}
+
+		partial void buttonAddOnClick(UIBarButtonItem sender)
+		{
+		}
 	}
 }

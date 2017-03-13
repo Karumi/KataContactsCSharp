@@ -111,6 +111,11 @@
       <DependentUpon>AgendaViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="AgendaPresenter.cs" />
+    <Compile Include="AddContactViewController.cs" />
+    <Compile Include="AddContactViewController.designer.cs">
+      <DependentUpon>AddContactViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddContactPresenter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
