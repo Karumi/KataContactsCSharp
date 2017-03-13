@@ -27,9 +27,9 @@ namespace KataContactsCSharp
 			return Datasource.Add(contact);
 		}
 
-		internal Task<Contact> Get(int atIndex)
+		internal Task<Contact> Get(string id)
 		{
-			return Datasource.Get(atIndex);
+			return Datasource.Get(id);
 		}
 	}
 }

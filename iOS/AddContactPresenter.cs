@@ -1,12 +1,26 @@
 using System;
+using System.Threading.Tasks;
 
 namespace KataContactsCSharp.iOS
 {
 	class AddContactPresenter
 	{
-		internal void AddContact(string firstname, string lastname, string phonenumber)
+		public interface IAddContactUI
 		{
-			throw new NotImplementedException();
+		}
+
+		AddContact AddContact { get; set; }
+		IAddContactUI AddContactUI { get; set; }
+
+		public AddContactPresenter(IAddContactUI addContactUI, AddContact addContact)
+		{
+			AddContact = addContact;
+			AddContactUI = addContactUI;
+		}
+
+		internal Task<Contact> Add(string firstname, string lastname, string phonenumber)
+		{
+			return AddContact.Execute(new Contact(firstname, lastname, phonenumber));
 		}
 	}
 }

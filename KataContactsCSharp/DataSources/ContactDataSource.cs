@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace KataContactsCSharp
@@ -20,24 +21,24 @@ namespace KataContactsCSharp
 			}
 		}
 
-		List<Contact> items { get; set; } = new List<Contact>();
+		Dictionary<string, Contact> items { get; set; } = new Dictionary<string, Contact>();
 
 		Task<Contact> IDatasource.Add(Contact contact)
 		{
 			return Task.Run(() => {
-				items.Add(contact); 
+				items.Add(contact.Id, contact); 
 				return contact;
 			});
 		}
 
-		Task<Contact> IDatasource.Get(int index)
+		Task<Contact> IDatasource.Get(string id)
 		{
-			return Task.FromResult(items[index]);
+			return Task.FromResult(items[id]);
 		}
 
 		Task<List<Contact>> IDatasource.GetAll()
 		{
-			return Task.FromResult(items);
+			return Task.FromResult(items.Values.ToList());
 		}
 	}
 }

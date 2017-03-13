@@ -4,21 +4,22 @@ using UIKit;
 
 namespace KataContactsCSharp.iOS
 {
-    public partial class AddContactViewController : UIViewController
+	public partial class AddContactViewController : UIViewController, AddContactPresenter.IAddContactUI
     {
-		readonly AddContactPresenter presenter;
+		internal AddContactPresenter Presenter { get; set; }
 
-        public AddContactViewController (IntPtr handle) : base (handle)
+	    public AddContactViewController (IntPtr handle) : base (handle)
         {
         }
 
-		partial void doneButtonClicked(UIBarButtonItem sender)
+		async partial void doneButtonClicked(UIBarButtonItem sender)
 		{
 			var firstname = firstNameTextField.Text;
 			var lastname = lastNameTextField.Text;
 			var phonenumber = phonenumberTextField.Text;
 
-			presenter.AddContact(firstname, lastname, phonenumber);
+			await Presenter.Add(firstname, lastname, phonenumber);
+			NavigationController.PopViewController(true);
 		}
 	}
 }

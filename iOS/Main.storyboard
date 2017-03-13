@@ -13,7 +13,7 @@
         <!--Agenda View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AgendaViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AgendaViewController" sceneMemberID="viewController" automaticallyAdjustsScrollViewInsets="NO">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="11">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="11" reuseIdentifier="ContactCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="11" id="12">
@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" id="MJy-Zm-WbW">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rfa-oo-wWZ">
                             <connections>
-                                <segue destination="3V7-H4-V8S" kind="show" id="ZwN-Lh-Vea"/>
+                                <action selector="buttonAddOnClick:" destination="BYZ-38-t0r" id="67"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -61,10 +61,67 @@
             </objects>
             <point key="canvasLocation" x="938.4" y="-0.4497751"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="RRj-kV-aIo">
+            <objects>
+                <viewController id="nMV-fh-fkE" sceneMemberID="viewController" customClass="ContactDetailViewController" storyboardIdentifier="ContactDetailViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zkt-6Q-0P9"/>
+                        <viewControllerLayoutGuide type="bottom" id="TM9-HB-F68"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tOh-3b-D0N">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fYc-tS-Atx" misplaced="YES">
+                                <rect key="frame" x="16" y="20" width="343" height="169"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4C-p2-kVl" fixedFrame="YES">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKV-1I-ZAC" fixedFrame="YES">
+                                        <rect key="frame" x="0.0" y="74" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phonenumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78" fixedFrame="YES">
+                                        <rect key="frame" x="0.0" y="148" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TM9-HB-F68" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fYc-tS-Atx" secondAttribute="bottom" id="3fO-zC-PF0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fYc-tS-Atx" secondAttribute="trailing" id="5LQ-aS-WwW"/>
+                            <constraint firstItem="fYc-tS-Atx" firstAttribute="top" secondItem="Zkt-6Q-0P9" secondAttribute="bottom" id="Pew-5e-CCO"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="fYc-tS-Atx" secondAttribute="leading" id="wuk-CL-djA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="LastNameLabel" destination="XKV-1I-ZAC" id="name-outlet-XKV-1I-ZAC"/>
+                        <outlet property="FirstnameLabel" destination="p4C-p2-kVl" id="name-outlet-p4C-p2-kVl"/>
+                        <outlet property="PhonenumberLabel" destination="78" id="name-outlet-78"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3g0-IG-1uQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1562" y="-729"/>
+        </scene>
         <!--Title-->
         <scene sceneID="3sU-8v-N7r">
             <objects>
-                <viewController id="3V7-H4-V8S" customClass="AddContactViewController" sceneMemberID="viewController">
+                <viewController id="3V7-H4-V8S" customClass="AddContactViewController" sceneMemberID="viewController" storyboardIdentifier="AddContactViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Cf-4T-olJ"/>
                         <viewControllerLayoutGuide type="bottom" id="X7b-DZ-VJi"/>
@@ -73,46 +130,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="wkN-GR-I5N">
-                                <rect key="frame" x="20" y="64" width="560" height="153"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="wkN-GR-I5N" misplaced="YES">
+                                <rect key="frame" x="16" y="64" width="343" height="153"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSL-TB-gT0" fixedFrame="YES">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YLV-7s-Nzc" fixedFrame="YES">
-                                        <rect key="frame" x="0.0" y="21" width="560" height="30"/>
+                                        <rect key="frame" x="0.0" y="21" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kC4-OT-G1w" fixedFrame="YES">
-                                        <rect key="frame" x="0.0" y="51" width="560" height="21"/>
+                                        <rect key="frame" x="0.0" y="51" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zIn-QI-UOx" fixedFrame="YES">
-                                        <rect key="frame" x="0.0" y="72" width="560" height="30"/>
+                                        <rect key="frame" x="0.0" y="72" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phonenumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pry-ci-70I" fixedFrame="YES">
-                                        <rect key="frame" x="0.0" y="102" width="560" height="21"/>
+                                        <rect key="frame" x="0.0" y="102" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dql-Ab-BAa" fixedFrame="YES">
-                                        <rect key="frame" x="0.0" y="123" width="560" height="30"/>
+                                        <rect key="frame" x="0.0" y="123" width="343" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -144,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pha-Q9-fUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="0.0"/>
+            <point key="canvasLocation" x="1650" y="-1"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IbT-OT-edU">

@@ -5,13 +5,15 @@ namespace KataContactsCSharp
 	{
 		public Contact(string firstName, string lastName, string phoneNumber)
 		{
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.phoneNumber = phoneNumber;
+			Id = Guid.NewGuid().ToString();
+			FirstName = firstName;
+			LastName = lastName;
+			PhoneNumber = phoneNumber;
 		}
 
-		public String firstName { get; }
-		public String lastName { get; }
-		public String phoneNumber { get; }
+		public string FirstName { get; }
+		public string Id { get; set; }
+		public string LastName { get; }
+		public string PhoneNumber { get; }
 	}
 }

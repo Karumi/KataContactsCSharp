@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System;
+using System.Threading.Tasks;
 
 namespace KataContactsCSharp
 {
@@ -15,9 +16,9 @@ namespace KataContactsCSharp
 		{
 		}
 
-		public Task<Contact> Execute(int index)
+		public Task<Contact> Execute(String id)
 		{
-			return ContactRepository.Get(index);
+			return ContactRepository.Get(id);
 		}
 	}
 }

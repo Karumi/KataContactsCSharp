@@ -7,6 +7,6 @@ namespace KataContactsCSharp
 	{
 		Task<List<Contact>> GetAll();
 		Task<Contact> Add(Contact contact);
-		Task<Contact> Get(int index);
+		Task<Contact> Get(string id);
 	}
 }
