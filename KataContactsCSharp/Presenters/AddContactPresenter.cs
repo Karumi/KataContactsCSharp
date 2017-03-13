@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace KataContactsCSharp.iOS
 {
-	class AddContactPresenter
+	public class AddContactPresenter
 	{
 		public interface IAddContactUI
 		{
@@ -17,7 +17,7 @@ namespace KataContactsCSharp.iOS
 			AddContactUI = addContactUI;
 		}
 
-		internal Task<Contact> Add(string firstname, string lastname, string phonenumber)
+		public Task<Contact> Add(string firstname, string lastname, string phonenumber)
 		{
 			return AddContact.Execute(new Contact(firstname, lastname, phonenumber));
 		}

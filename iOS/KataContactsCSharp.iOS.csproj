@@ -94,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="ViewControllers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -106,22 +107,18 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="AgendaViewController.cs" />
-    <Compile Include="AgendaViewController.designer.cs">
-      <DependentUpon>AgendaViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AgendaPresenter.cs" />
-    <Compile Include="AddContactViewController.cs" />
-    <Compile Include="AddContactViewController.designer.cs">
+    <Compile Include="ViewControllers\AddContactViewController.cs" />
+    <Compile Include="ViewControllers\AddContactViewController.designer.cs">
       <DependentUpon>AddContactViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddContactPresenter.cs" />
-    <Compile Include="PresenterLocator.cs" />
-    <Compile Include="ContactDetailViewController.cs" />
-    <Compile Include="ContactDetailViewController.designer.cs">
+    <Compile Include="ViewControllers\AgendaViewController.cs" />
+    <Compile Include="ViewControllers\AgendaViewController.designer.cs">
+      <DependentUpon>AgendaViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\ContactDetailViewController.cs" />
+    <Compile Include="ViewControllers\ContactDetailViewController.designer.cs">
       <DependentUpon>ContactDetailViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContactDetailPresenter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

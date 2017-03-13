@@ -35,12 +35,17 @@
     <Compile Include="Use Cases\Repositories\ContactRepository.cs" />
     <Compile Include="Use Cases\Repositories\IDatasource.cs" />
     <Compile Include="DataSources\ContactDataSource.cs" />
+    <Compile Include="Presenters\AddContactPresenter.cs" />
+    <Compile Include="Presenters\AgendaPresenter.cs" />
+    <Compile Include="Presenters\ContactDetailPresenter.cs" />
+    <Compile Include="Presenters\PresenterLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Use Cases\" />
     <Folder Include="DataSources\" />
     <Folder Include="Use Cases\Entities\" />
     <Folder Include="Use Cases\Repositories\" />
+    <Folder Include="Presenters\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

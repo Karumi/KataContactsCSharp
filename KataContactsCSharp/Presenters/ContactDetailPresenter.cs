@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace KataContactsCSharp.iOS
 {
 	public class ContactDetailPresenter
@@ -20,7 +22,7 @@ namespace KataContactsCSharp.iOS
 			this.getContactDetail = getContactDetail;
 		}
 
-		internal async Task ViewDidLoad()
+		public async Task ViewDidLoad()
 		{
 			var contact = await getContactDetail.Execute(id);
 			ui.Show(contact);

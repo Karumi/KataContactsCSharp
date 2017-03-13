@@ -2,17 +2,17 @@ namespace KataContactsCSharp.iOS
 {
 	public class PresenterLocator
 	{
-		internal AgendaPresenter AgendaPresenter(AgendaViewController agendaViewController)
+		public AgendaPresenter AgendaPresenter(AgendaPresenter.IAgendaUI agendaViewController)
 		{
 			return new AgendaPresenter(agendaViewController, GetContacts);
 		}
 
-		internal AddContactPresenter AddContactPresenter(AddContactViewController addContactViewController)
+		public AddContactPresenter AddContactPresenter(AddContactPresenter.IAddContactUI addContactViewController)
 		{
 			return new AddContactPresenter(addContactViewController, AddContact);
 		}
 
-		internal ContactDetailPresenter ContactDetail(string id, ContactDetailViewController contactDetailViewController)
+		public ContactDetailPresenter ContactDetail(string id, ContactDetailPresenter.IContactDetailUI contactDetailViewController)
 		{
 			return new ContactDetailPresenter(id, contactDetailViewController, GetContactDetail);
 		}

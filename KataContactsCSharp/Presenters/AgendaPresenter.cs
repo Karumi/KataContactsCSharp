@@ -20,13 +20,13 @@ namespace KataContactsCSharp.iOS
 			this.getContacts = getContacts;
 		}
 
-		internal async Task ViewDidLoad()
+		public async Task ViewDidLoad()
 		{
 			var contacts = await getContacts.Execute();
 			ui.Show(contacts);
 		}
 
-		internal async Task ViewWillAppear()
+		public async Task ViewWillAppear()
 		{
 			var contacts = await getContacts.Execute();
 			ui.Show(contacts);
@@ -37,7 +37,7 @@ namespace KataContactsCSharp.iOS
 			ui.OpenContactDetailScreen(contact);
 		}
 
-		internal void ItemSelected(Contact contact)
+		public void ItemSelected(Contact contact)
 		{
 			ui.OpenContactDetailScreen(contact);
 		}
