@@ -26,9 +26,9 @@ namespace KataContactsCSharp.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField phonenumberTextField { get; set; }
 
-        [Action ("doneButtonClicked:")]
+        [Action ("DoneButtonClicked:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void doneButtonClicked (UIKit.UIBarButtonItem sender);
+        partial void DoneButtonClicked (UIKit.UIBarButtonItem sender);
 
         void ReleaseDesignerOutlets ()
         {

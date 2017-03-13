@@ -5,11 +5,11 @@ namespace KataContactsCSharp
 {
 	class ContactRepository
 	{
-		IDatasource Datasource { get; set; }
+		readonly IDatasource datasource;
 
-		public ContactRepository(IDatasource Datasource)
+		public ContactRepository(IDatasource datasource)
 		{
-			this.Datasource = Datasource;
+			this.datasource = datasource;
 		}
 
 		internal ContactRepository() : this(ContactDataSource.Instance)
@@ -18,17 +18,17 @@ namespace KataContactsCSharp
 
 		internal Task<List<Contact>> GetAll()
 		{
-			return Datasource.GetAll();
+			return datasource.GetAll();
 		}
 
 		internal Task<Contact> Add(Contact contact)
 		{
-			return Datasource.Add(contact);
+			return datasource.Add(contact);
 		}
 
 		internal Task<Contact> Get(string id)
 		{
-			return Datasource.Get(id);
+			return datasource.Get(id);
 		}
 	}
 }

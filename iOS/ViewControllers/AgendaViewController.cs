@@ -11,17 +11,16 @@ namespace KataContactsCSharp.iOS
 
 		AgendaPresenter presenter;
 
+		public AgendaViewController(IntPtr handle) : base(handle)
+		{
+		}
+
 		AgendaPresenter Presenter
 		{
 			get
 			{
-				return presenter ?? (presenter = Application.Locator.AgendaPresenter(this));		
+				return presenter ?? (presenter = Application.Locator.AgendaPresenter(this));
 			}
-		}
-
-
-		public AgendaViewController(IntPtr handle) : base(handle)
-		{
 		}
 
 #pragma warning disable RECS0165 // Asynchronous methods should return a Task instead of void
@@ -61,7 +60,7 @@ namespace KataContactsCSharp.iOS
 			}
 		}
 
-		partial void buttonAddOnClick(UIBarButtonItem sender)
+		partial void ButtonAddOnClick(UIBarButtonItem sender)
 		{
 			var addContactViewController = Storyboard.InstantiateViewController("AddContactViewController") as AddContactViewController;
 			if (addContactViewController != null)
@@ -73,6 +72,7 @@ namespace KataContactsCSharp.iOS
 
 		public class TableSource : UITableViewSource
 		{
+			const string CellIdentifier = "ContactCell";
 			readonly AgendaPresenter presenter;
 
 			public TableSource(AgendaPresenter presenter)
@@ -81,8 +81,6 @@ namespace KataContactsCSharp.iOS
 			}
 
 			internal List<Contact> Items { get; set; } = new List<Contact>();
-			const string cellIdentifier = "ContactCell";
-
 
 			public override nint RowsInSection(UITableView tableview, nint section)
 			{
@@ -91,7 +89,7 @@ namespace KataContactsCSharp.iOS
 
 			public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 			{
-				var cell = tableView.DequeueReusableCell(cellIdentifier);
+				var cell = tableView.DequeueReusableCell(CellIdentifier);
 				cell.TextLabel.Text = Items[indexPath.Row].FirstName;
 				cell.UserInteractionEnabled = true;
 				return cell;

@@ -7,6 +7,7 @@ namespace KataContactsCSharp
 	class ContactDataSource : IDatasource
 	{
 		static ContactDataSource instance;
+		readonly Dictionary<string, Contact> items = new Dictionary<string, Contact>();
 
 		public static ContactDataSource Instance
 		{
@@ -16,11 +17,10 @@ namespace KataContactsCSharp
 				{
 					instance = new ContactDataSource();
 				}
+
 				return instance;
 			}
 		}
-
-		Dictionary<string, Contact> items { get; set; } = new Dictionary<string, Contact>();
 
 		Task<Contact> IDatasource.Add(Contact contact)
 		{

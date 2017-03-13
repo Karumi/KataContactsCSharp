@@ -5,12 +5,6 @@ namespace KataContactsCSharp.iOS
 {
 	public class AgendaPresenter
 	{
-		public interface IAgendaUI
-		{
-			void Show(List<Contact> contacts);
-			void OpenContactDetailScreen(Contact contact);
-		}
-
 		readonly IAgendaUI ui;
 		readonly GetContacts getContacts;
 
@@ -18,6 +12,13 @@ namespace KataContactsCSharp.iOS
 		{
 			this.ui = ui;
 			this.getContacts = getContacts;
+		}
+
+		public interface IAgendaUI
+		{
+			void Show(List<Contact> contacts);
+
+			void OpenContactDetailScreen(Contact contact);
 		}
 
 		public async Task ViewDidLoad()
@@ -32,12 +33,12 @@ namespace KataContactsCSharp.iOS
 			ui.Show(contacts);
 		}
 
-		void itemWasTapped(Contact contact)
+		public void ItemSelected(Contact contact)
 		{
 			ui.OpenContactDetailScreen(contact);
 		}
 
-		public void ItemSelected(Contact contact)
+		void ItemWasTapped(Contact contact)
 		{
 			ui.OpenContactDetailScreen(contact);
 		}

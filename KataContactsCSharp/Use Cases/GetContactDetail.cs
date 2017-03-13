@@ -4,20 +4,20 @@ namespace KataContactsCSharp
 {
 	public class GetContactDetail
 	{
-		readonly ContactRepository ContactRepository;
-
-		internal GetContactDetail(ContactRepository ContactRepository)
-		{
-			this.ContactRepository = ContactRepository;
-		}
+		readonly ContactRepository contactRepository;
 
 		public GetContactDetail() : this(new ContactRepository())
 		{
 		}
 
+		internal GetContactDetail(ContactRepository contactRepository)
+		{
+			this.contactRepository = contactRepository;
+		}
+
 		public Task<Contact> Execute(string id)
 		{
-			return ContactRepository.Get(id);
+			return contactRepository.Get(id);
 		}
 	}
 }

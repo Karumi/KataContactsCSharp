@@ -1,4 +1,5 @@
 using System;
+
 namespace KataContactsCSharp
 {
 	public class Contact
@@ -12,8 +13,11 @@ namespace KataContactsCSharp
 		}
 
 		public string FirstName { get; }
+
 		public string Id { get; set; }
+
 		public string LastName { get; }
+
 		public string PhoneNumber { get; }
 	}
 }
