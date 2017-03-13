@@ -6,6 +6,20 @@ namespace KataContactsCSharp
 {
 	class ContactDataSource : IDatasource
 	{
+		static ContactDataSource instance;
+
+		public static ContactDataSource Instance
+		{
+			get
+			{
+				if (instance == null)
+				{
+					instance = new ContactDataSource();
+				}
+				return instance;
+			}
+		}
+
 		List<Contact> items { get; set; } = new List<Contact>();
 
 		Task<Contact> IDatasource.Add(Contact contact)

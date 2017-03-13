@@ -13,7 +13,7 @@ namespace KataContactsCSharp
 			this.Datasource = Datasource;
 		}
 
-		internal ContactRepository(): this(new ContactDataSource())
+		internal ContactRepository(): this(ContactDataSource.Instance)
 		{
 		}
 
