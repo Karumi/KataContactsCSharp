@@ -1,5 +1,3 @@
-using System;
-
 namespace KataContactsCSharp.iOS
 {
 	public class PresenterLocator
@@ -33,7 +31,7 @@ namespace KataContactsCSharp.iOS
 			get
 			{
 				return new GetContactDetail();
-			} 
+			}
 		}
 
 		AddContact AddContact

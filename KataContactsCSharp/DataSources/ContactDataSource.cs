@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,8 +24,9 @@ namespace KataContactsCSharp
 
 		Task<Contact> IDatasource.Add(Contact contact)
 		{
-			return Task.Run(() => {
-				items.Add(contact.Id, contact); 
+			return Task.Run(() =>
+			{
+				items.Add(contact.Id, contact);
 				return contact;
 			});
 		}

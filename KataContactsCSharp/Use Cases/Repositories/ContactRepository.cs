@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace KataContactsCSharp
@@ -13,7 +12,7 @@ namespace KataContactsCSharp
 			this.Datasource = Datasource;
 		}
 
-		internal ContactRepository(): this(ContactDataSource.Instance)
+		internal ContactRepository() : this(ContactDataSource.Instance)
 		{
 		}
 

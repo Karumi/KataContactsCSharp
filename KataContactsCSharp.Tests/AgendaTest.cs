@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.Contracts;
+﻿using System.Diagnostics.Contracts;
 using NUnit.Framework;
 namespace KataContactsCSharp.Tests
 {
@@ -46,7 +45,7 @@ namespace KataContactsCSharp.Tests
 			var getContacs = givenAnGetContactsUseCase();
 			var addContact = givenAnAddContactUseCase();
 
-			Contact contact = givenAnyContact();
+			var contact = givenAnyContact();
 
 			await addContact.Execute(contact);
 

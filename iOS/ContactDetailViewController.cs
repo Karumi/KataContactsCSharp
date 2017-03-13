@@ -1,14 +1,13 @@
-using Foundation;
 using System;
 using UIKit;
 
 namespace KataContactsCSharp.iOS
 {
 	public partial class ContactDetailViewController : UIViewController, ContactDetailPresenter.IContactDetailUI
-    {
-        public ContactDetailViewController (IntPtr handle) : base (handle)
-        {
-        }
+	{
+		public ContactDetailViewController(IntPtr handle) : base(handle)
+		{
+		}
 
 		public ContactDetailPresenter Presenter { get; internal set; }
 

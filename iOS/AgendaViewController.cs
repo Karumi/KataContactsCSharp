@@ -24,18 +24,22 @@ namespace KataContactsCSharp.iOS
 		{
 		}
 
+#pragma warning disable RECS0165 // Asynchronous methods should return a Task instead of void
 		public override async void ViewDidLoad()
+#pragma warning restore RECS0165 // Asynchronous methods should return a Task instead of void
 		{
 			base.ViewDidLoad();
 
-			this.tableSource = new TableSource(this.Presenter);
+			tableSource = new TableSource(Presenter);
 			tableView.Source = tableSource;
 			tableView.AllowsSelection = true;
 
 			await Presenter.ViewDidLoad();
 		}
 
+#pragma warning disable RECS0165 // Asynchronous methods should return a Task instead of void
 		public override async void ViewWillAppear(bool animated)
+#pragma warning restore RECS0165 // Asynchronous methods should return a Task instead of void
 		{
 			base.ViewWillAppear(animated);
 			await Presenter.ViewWillAppear();
@@ -87,7 +91,7 @@ namespace KataContactsCSharp.iOS
 
 			public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 			{
-				UITableViewCell cell = tableView.DequeueReusableCell(cellIdentifier);
+				var cell = tableView.DequeueReusableCell(cellIdentifier);
 				cell.TextLabel.Text = Items[indexPath.Row].FirstName;
 				cell.UserInteractionEnabled = true;
 				return cell;

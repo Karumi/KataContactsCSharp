@@ -1,16 +1,15 @@
-using Foundation;
 using System;
 using UIKit;
 
 namespace KataContactsCSharp.iOS
 {
 	public partial class AddContactViewController : UIViewController, AddContactPresenter.IAddContactUI
-    {
+	{
 		internal AddContactPresenter Presenter { get; set; }
 
-	    public AddContactViewController (IntPtr handle) : base (handle)
-        {
-        }
+		public AddContactViewController(IntPtr handle) : base(handle)
+		{
+		}
 
 		async partial void doneButtonClicked(UIBarButtonItem sender)
 		{
