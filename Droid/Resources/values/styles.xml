@@ -1,4 +1,4 @@
 ﻿<resources>
-  <style name="AppTheme" parent="android:Theme.Material">
+  <style name="AppTheme" parent="Theme.AppCompat">
   </style>
 </resources>

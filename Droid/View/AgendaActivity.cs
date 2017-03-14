@@ -5,11 +5,12 @@ using Android.Support.V7.Widget;
 using System.Collections.Generic;
 using KataContactsCSharp.iOS;
 using System;
+using Android.Support.V7.App;
 
 namespace KataContactsCSharp.Droid
 {
 	[Activity(Label = "KataContactsCSharp", MainLauncher = true, Icon = "@mipmap/icon")]
-	public class MainActivity : Activity, AgendaPresenter.IAgendaUI
+	public class MainActivity : AppCompatActivity, AgendaPresenter.IAgendaUI
 	{
 		AgendaPresenter presenter;
 
@@ -23,9 +24,9 @@ namespace KataContactsCSharp.Droid
 			SetContentView(Resource.Layout.Agenda);
 			recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
 
-			this.InitializePresenter();
-			this.InitializeAdapter();
-			this.InitializeRecyclerView();
+			InitializePresenter();
+			InitializeAdapter();
+			InitializeRecyclerView();
 			presenter.ViewDidLoad();
 		}
 
