@@ -16,7 +16,7 @@ namespace KataContactsCSharp.Droid
 		{
 			FindViewById<TextView>(Resource.Id.firstnameTextView).Text = contact.FirstName;
 			FindViewById<TextView>(Resource.Id.lastnameTextView).Text = contact.LastName;
-			FindViewById<TextView>(Resource.Id.phonenumberTextView).Text = contact.LastName;
+			FindViewById<TextView>(Resource.Id.phonenumberTextView).Text = contact.PhoneNumber;
 		}
 
 		internal static void Open(Context context, string id)
