@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using Android.Support.V7.Widget;
 using Android.Views;
+using KataContactsCSharp.iOS;
 
 namespace KataContactsCSharp.Droid
 {
 	class AgendaAdapter : RecyclerView.Adapter
 	{
+		readonly AgendaPresenter presenter;
+
 		List<Contact> items;
 
-		public AgendaAdapter(List<Contact> items)
+		public AgendaAdapter(AgendaPresenter presenter)
 		{
-			this.items = items;
+			this.presenter = presenter;
+			items = new List<Contact>();
 		}
 
 		public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -19,8 +23,7 @@ namespace KataContactsCSharp.Droid
 			var itemView = LayoutInflater.From(parent.Context).
 										  Inflate(Resource.Layout.ConcactCardView, parent, false);
 
-			var vh = new ContactViewHolder(itemView);
-			return vh;
+			return new ContactViewHolder(itemView, presenter);
 		}
 
 		public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -35,6 +38,11 @@ namespace KataContactsCSharp.Droid
 			{
 				return items.Count;
 			}
+		}
+
+		internal void AddAll(List<Contact> contacts)
+		{
+			items.AddRange(contacts);
 		}
 	}
 }
