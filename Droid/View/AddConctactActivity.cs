@@ -8,7 +8,7 @@ using KataContactsCSharp.iOS;
 
 namespace KataContactsCSharp.Droid
 {
-	[Activity(Label = "ContactDetailActivity")]
+	[Activity(Label = "AddConctactActivity")]
 	public class AddConctactActivity: AppCompatActivity, AddContactPresenter.IAddContactUI
 	{
 		AddContactPresenter presenter;

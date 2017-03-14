@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Android.Support.V7.Widget;
 using Android.Views;
+using Android.Widget;
 using KataContactsCSharp.iOS;
 
 namespace KataContactsCSharp.Droid
@@ -11,6 +12,8 @@ namespace KataContactsCSharp.Droid
 		readonly AgendaPresenter presenter;
 
 		List<Contact> items;
+
+		public event EventHandler<Contact> ItemClick;
 
 		public AgendaAdapter(AgendaPresenter presenter)
 		{
@@ -23,7 +26,7 @@ namespace KataContactsCSharp.Droid
 			var itemView = LayoutInflater.From(parent.Context).
 										  Inflate(Resource.Layout.ConcactCardView, parent, false);
 
-			return new ContactViewHolder(itemView, presenter);
+			return new ContactViewHolder(itemView, presenter, OnClick);
 		}
 
 		public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -43,6 +46,12 @@ namespace KataContactsCSharp.Droid
 		internal void AddAll(List<Contact> contacts)
 		{
 			items = contacts;
+		}
+
+		void OnClick(int position)
+		{
+			if (ItemClick != null)
+				ItemClick(this, items[position]);
 		}
 	}
 }

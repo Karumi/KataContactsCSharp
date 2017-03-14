@@ -64,6 +64,7 @@ namespace KataContactsCSharp.Droid
 		void InitializeAdapter()
 		{
 			adapter = new AgendaAdapter(presenter);
+			adapter.ItemClick += OnItemClick;
 		}
 
 		void InitializeRecyclerView()
@@ -72,6 +73,11 @@ namespace KataContactsCSharp.Droid
 			recyclerView.SetLayoutManager(layoutManager);
 			recyclerView.HasFixedSize = true;
 			recyclerView.SetAdapter(adapter);
+		}
+
+		void OnItemClick(object sender, Contact contact)
+		{
+			ContactDetailActivity.Open(this, contact.Id);
 		}
 	}
 }
