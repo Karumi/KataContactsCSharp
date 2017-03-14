@@ -1,26 +1,26 @@
 using System.Threading.Tasks;
 
-namespace KataContactsCSharp.iOS
+namespace KataContactsCSharp
 {
 	public class ContactDetailPresenter
 	{
-		readonly IContactDetailUI ui;
+		readonly IView ui;
 		readonly GetContactDetail getContactDetail;
 		readonly string id;
 
-		public ContactDetailPresenter(string id, IContactDetailUI contactDetailUI, GetContactDetail getContactDetail)
+		public ContactDetailPresenter(string id, IView contactDetailUI, GetContactDetail getContactDetail)
 		{
 			this.id = id;
 			ui = contactDetailUI;
 			this.getContactDetail = getContactDetail;
 		}
 
-		public interface IContactDetailUI
+		public interface IView
 		{
 			void Show(Contact contact);
 		}
 
-		public async Task ViewDidLoad()
+		public async Task Initialize()
 		{
 			var contact = await getContactDetail.Execute(id);
 			ui.Show(contact);

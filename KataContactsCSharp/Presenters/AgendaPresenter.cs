@@ -1,33 +1,33 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace KataContactsCSharp.iOS
+namespace KataContactsCSharp
 {
 	public class AgendaPresenter
 	{
-		readonly IAgendaUI ui;
+		readonly IView ui;
 		readonly GetContacts getContacts;
 
-		internal AgendaPresenter(IAgendaUI ui, GetContacts getContacts)
+		internal AgendaPresenter(IView ui, GetContacts getContacts)
 		{
 			this.ui = ui;
 			this.getContacts = getContacts;
 		}
 
-		public interface IAgendaUI
+		public interface IView
 		{
 			void Show(List<Contact> contacts);
 
 			void OpenContactDetailScreen(Contact contact);
 		}
 
-		public async Task ViewDidLoad()
+		public async Task Initialize()
 		{
 			var contacts = await getContacts.Execute();
 			ui.Show(contacts);
 		}
 
-		public async Task ViewWillAppear()
+		public async Task OnForeground()
 		{
 			var contacts = await getContacts.Execute();
 			ui.Show(contacts);

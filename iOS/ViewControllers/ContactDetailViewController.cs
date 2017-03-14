@@ -3,7 +3,7 @@ using UIKit;
 
 namespace KataContactsCSharp.iOS
 {
-	public partial class ContactDetailViewController : UIViewController, ContactDetailPresenter.IContactDetailUI
+	public partial class ContactDetailViewController : UIViewController, ContactDetailPresenter.IView
 	{
 		public ContactDetailViewController(IntPtr handle) : base(handle)
 		{
@@ -14,7 +14,7 @@ namespace KataContactsCSharp.iOS
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			Presenter.ViewDidLoad();
+			Presenter.Initialize();
 		}
 
 		public void Show(Contact contact)

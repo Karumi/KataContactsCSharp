@@ -1,4 +1,4 @@
-namespace KataContactsCSharp.iOS
+namespace KataContactsCSharp
 {
 	public class PresenterLocator
 	{
@@ -26,17 +26,17 @@ namespace KataContactsCSharp.iOS
 			}
 		}
 
-		public AgendaPresenter AgendaPresenter(AgendaPresenter.IAgendaUI agendaViewController)
+		public AgendaPresenter AgendaPresenter(AgendaPresenter.IView agendaViewController)
 		{
 			return new AgendaPresenter(agendaViewController, GetContacts);
 		}
 
-		public AddContactPresenter AddContactPresenter(AddContactPresenter.IAddContactUI addContactViewController)
+		public AddContactPresenter AddContactPresenter(AddContactPresenter.IView addContactViewController)
 		{
 			return new AddContactPresenter(addContactViewController, AddContact);
 		}
 
-		public ContactDetailPresenter ContactDetail(string id, ContactDetailPresenter.IContactDetailUI contactDetailViewController)
+		public ContactDetailPresenter ContactDetailPresenter(string id, ContactDetailPresenter.IView contactDetailViewController)
 		{
 			return new ContactDetailPresenter(id, contactDetailViewController, GetContactDetail);
 		}
