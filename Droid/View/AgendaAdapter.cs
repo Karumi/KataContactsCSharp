@@ -42,7 +42,7 @@ namespace KataContactsCSharp.Droid
 
 		internal void AddAll(List<Contact> contacts)
 		{
-			items.AddRange(contacts);
+			items = contacts;
 		}
 	}
 }

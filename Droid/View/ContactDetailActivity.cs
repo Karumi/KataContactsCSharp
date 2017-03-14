@@ -19,12 +19,11 @@ namespace KataContactsCSharp.Droid
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-
 		}
 
 		internal static void Open(MainActivity mainActivity, string id)
 		{
 			throw new NotImplementedException();
 		}
-	}
+}
 }

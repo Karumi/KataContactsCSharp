@@ -93,8 +93,9 @@
     <Compile Include="View\AgendaActivity.cs" />
     <Compile Include="View\AgendaAdapter.cs" />
     <Compile Include="View\ContactViewHolder.cs" />
-    <Compile Include="ContactDetailActivity.cs" />
     <Compile Include="App.cs" />
+    <Compile Include="View\AddConctactActivity.cs" />
+    <Compile Include="View\ContactDetailActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

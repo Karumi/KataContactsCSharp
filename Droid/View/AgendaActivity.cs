@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using KataContactsCSharp.iOS;
 using System;
 using Android.Support.V7.App;
+using Android.Views;
+using Java.Interop;
+using Android.Support.Design.Widget;
 
 namespace KataContactsCSharp.Droid
 {
@@ -23,6 +26,11 @@ namespace KataContactsCSharp.Droid
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.Agenda);
 			recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+			var addButton = FindViewById<FloatingActionButton>(Resource.Id.addButton);
+			addButton.Click += (sender, e) => {
+				AddConctactActivity.Open(this);
+			};
+
 
 			InitializePresenter();
 			InitializeAdapter();
@@ -30,9 +38,17 @@ namespace KataContactsCSharp.Droid
 			presenter.ViewDidLoad();
 		}
 
+		protected override void OnResume()
+		{
+			base.OnResume();
+
+			presenter.ViewWillAppear();
+		}
+
 		public void Show(List<Contact> contacts)
 		{
 			adapter.AddAll(contacts);
+			adapter.NotifyDataSetChanged();
 		}
 
 		public void OpenContactDetailScreen(Contact contact)
