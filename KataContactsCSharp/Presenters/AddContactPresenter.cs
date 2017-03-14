@@ -1,20 +1,20 @@
 using System.Threading.Tasks;
 
-namespace KataContactsCSharp.iOS
+namespace KataContactsCSharp
 {
 	public class AddContactPresenter
 	{
 		readonly AddContact addContact;
 
-		readonly IAddContactUI addContactUI;
+		readonly IView addContactUI;
 
-		public AddContactPresenter(IAddContactUI addContactUI, AddContact addContact)
+		public AddContactPresenter(IView addContactUI, AddContact addContact)
 		{
 			this.addContact = addContact;
 			this.addContactUI = addContactUI;
 		}
 
-		public interface IAddContactUI
+		public interface IView
 		{
 		}
 

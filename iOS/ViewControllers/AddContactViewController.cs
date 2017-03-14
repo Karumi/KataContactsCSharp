@@ -3,7 +3,7 @@ using UIKit;
 
 namespace KataContactsCSharp.iOS
 {
-	public partial class AddContactViewController : UIViewController, AddContactPresenter.IAddContactUI
+	public partial class AddContactViewController : UIViewController, AddContactPresenter.IView
 	{
 		public AddContactViewController(IntPtr handle) : base(handle)
 		{

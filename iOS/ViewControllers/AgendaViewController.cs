@@ -5,7 +5,7 @@ using UIKit;
 
 namespace KataContactsCSharp.iOS
 {
-	public partial class AgendaViewController : UIViewController, AgendaPresenter.IAgendaUI
+	public partial class AgendaViewController : UIViewController, AgendaPresenter.IView
 	{
 		TableSource tableSource;
 
@@ -33,7 +33,7 @@ namespace KataContactsCSharp.iOS
 			tableView.Source = tableSource;
 			tableView.AllowsSelection = true;
 
-			await Presenter.ViewDidLoad();
+			await Presenter.Initialize();
 		}
 
 #pragma warning disable RECS0165 // Asynchronous methods should return a Task instead of void
@@ -41,7 +41,7 @@ namespace KataContactsCSharp.iOS
 #pragma warning restore RECS0165 // Asynchronous methods should return a Task instead of void
 		{
 			base.ViewWillAppear(animated);
-			await Presenter.ViewWillAppear();
+			await Presenter.OnForeground();
 		}
 
 		public void Show(List<Contact> contacts)
@@ -55,7 +55,7 @@ namespace KataContactsCSharp.iOS
 			var contactDetailViewController = Storyboard.InstantiateViewController("ContactDetailViewController") as ContactDetailViewController;
 			if (contactDetailViewController != null) 
 			{
-				contactDetailViewController.Presenter = Application.Locator.ContactDetail(contact.Id, contactDetailViewController);
+				contactDetailViewController.Presenter = Application.Locator.ContactDetailPresenter(contact.Id, contactDetailViewController);
 				NavigationController.PushViewController(contactDetailViewController, true);
 			}
 		}
