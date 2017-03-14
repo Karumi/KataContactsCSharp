@@ -11,18 +11,25 @@ namespace KataContactsCSharp.Droid
 
 		List<Contact> items;
 
-		public event EventHandler<Contact> ItemClick;
-
 		public AgendaAdapter(AgendaPresenter presenter)
 		{
 			this.presenter = presenter;
 			items = new List<Contact>();
 		}
 
+		public event EventHandler<Contact> ItemClick;
+
+		public override int ItemCount
+		{
+			get
+			{
+				return items.Count;
+			}
+		}
+
 		public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
 		{
-			var itemView = LayoutInflater.From(parent.Context).
-										  Inflate(Resource.Layout.ConcactCardView, parent, false);
+			var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.ConcactCardView, parent, false);
 
 			return new ContactViewHolder(itemView, presenter, OnClick);
 		}
@@ -33,14 +40,6 @@ namespace KataContactsCSharp.Droid
 			vh.Caption.Text = items[position].FirstName;
 		}
 
-		public override int ItemCount
-		{
-			get
-			{
-				return items.Count;
-			}
-		}
-
 		internal void AddAll(List<Contact> contacts)
 		{
 			items = contacts;
@@ -48,8 +47,10 @@ namespace KataContactsCSharp.Droid
 
 		void OnClick(int position)
 		{
-			if (ItemClick != null)
+			if (ItemClick != null) 
+			{ 
 				ItemClick(this, items[position]);
+			}
 		}
 	}
 }

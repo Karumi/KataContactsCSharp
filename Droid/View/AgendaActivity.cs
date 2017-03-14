@@ -1,9 +1,9 @@
-﻿using Android.App;
+﻿using System.Collections.Generic;
+using Android.App;
 using Android.OS;
-using Android.Support.V7.Widget;
-using System.Collections.Generic;
-using Android.Support.V7.App;
 using Android.Support.Design.Widget;
+using Android.Support.V7.App;
+using Android.Support.V7.Widget;
 
 namespace KataContactsCSharp.Droid
 {
@@ -16,6 +16,17 @@ namespace KataContactsCSharp.Droid
 
 		RecyclerView recyclerView;
 
+		public void Show(List<Contact> contacts)
+		{
+			adapter.AddAll(contacts);
+			adapter.NotifyDataSetChanged();
+		}
+
+		public void OpenContactDetailScreen(Contact contact)
+		{
+			ContactDetailActivity.Open(this, contact.Id);
+		}
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -26,7 +37,6 @@ namespace KataContactsCSharp.Droid
 			{
 				AddConctactActivity.Open(this);
 			};
-
 
 			InitializePresenter();
 			InitializeAdapter();
@@ -39,17 +49,6 @@ namespace KataContactsCSharp.Droid
 			base.OnResume();
 
 			presenter.OnForeground();
-		}
-
-		public void Show(List<Contact> contacts)
-		{
-			adapter.AddAll(contacts);
-			adapter.NotifyDataSetChanged();
-		}
-
-		public void OpenContactDetailScreen(Contact contact)
-		{
-			ContactDetailActivity.Open(this, contact.Id);
 		}
 
 		void InitializePresenter()
@@ -77,4 +76,3 @@ namespace KataContactsCSharp.Droid
 		}
 	}
 }
-

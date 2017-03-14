@@ -11,6 +11,12 @@ namespace KataContactsCSharp.Droid
 	{
 		AddContactPresenter presenter;
 
+		internal static void Open(Context context)
+		{
+			var intent = new Intent(context, typeof(AddConctactActivity));
+			context.StartActivity(intent);
+		}
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -26,12 +32,6 @@ namespace KataContactsCSharp.Droid
 				await presenter.Add(firstname, lastname, phonenumber);
 				Finish();
 			};
-		}
-
-		internal static void Open(Context context)
-		{
-			var intent = new Intent(context, typeof(AddConctactActivity));
-			context.StartActivity(intent);
 		}
 
 		void InitializePresenter()

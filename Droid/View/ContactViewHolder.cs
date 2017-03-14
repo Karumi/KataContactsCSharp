@@ -1,15 +1,12 @@
-using Android.Widget;
+using System;
 using Android.Support.V7.Widget;
 using Android.Views;
-using System;
+using Android.Widget;
 
 namespace KataContactsCSharp.Droid
 {
-
 	public class ContactViewHolder : RecyclerView.ViewHolder
 	{
-		public TextView Caption { get; private set; }
-
 		readonly AgendaPresenter presenter;
 
 		public ContactViewHolder(View itemView, AgendaPresenter presenter, Action<int> listener) : base(itemView)
@@ -19,5 +16,7 @@ namespace KataContactsCSharp.Droid
 
 			this.presenter = presenter;
 		}
+	
+		public TextView Caption { get; private set; }
 	}
 }
