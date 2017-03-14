@@ -1,21 +1,13 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
-using KataContactsCSharp.iOS;
 
 namespace KataContactsCSharp.Droid
 {
 	[Activity(Label = "ContactDetailActivity")]
-	public class ContactDetailActivity : Activity, ContactDetailPresenter.IContactDetailUI
+	public class ContactDetailActivity : Activity, ContactDetailPresenter.IView
 	{
 		const string CONTACT_ID_KEY = "contact_id_key";
 		ContactDetailPresenter presenter;
@@ -34,11 +26,11 @@ namespace KataContactsCSharp.Droid
 			context.StartActivity(intent);
 		}
 
-		private async Task InitializePresenter()
+		async Task InitializePresenter()
 		{
-			String contactId = getContactId();
-			presenter = App.Locator.ContactDetail(contactId, this);
-			await presenter.ViewDidLoad();
+			var contactId = getContactId();
+			presenter = App.Locator.ContactDetailPresenter(contactId, this);
+			await presenter.Initialize();
 		}
 
 		string getContactId()

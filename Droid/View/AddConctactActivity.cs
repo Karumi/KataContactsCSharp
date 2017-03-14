@@ -1,15 +1,13 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
-using KataContactsCSharp.iOS;
 
 namespace KataContactsCSharp.Droid
 {
 	[Activity(Label = "AddConctactActivity")]
-	public class AddConctactActivity: AppCompatActivity, AddContactPresenter.IAddContactUI
+	public class AddConctactActivity : AppCompatActivity, AddContactPresenter.IView
 	{
 		AddContactPresenter presenter;
 
@@ -26,7 +24,7 @@ namespace KataContactsCSharp.Droid
 				var lastname = FindViewById<EditText>(Resource.Id.lastnameEditText).Text;
 				var phonenumber = FindViewById<EditText>(Resource.Id.phonenumberEditText).Text;
 				await presenter.Add(firstname, lastname, phonenumber);
-				this.Finish();
+				Finish();
 			};
 		}
 

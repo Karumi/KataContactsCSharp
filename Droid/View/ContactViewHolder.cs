@@ -1,9 +1,6 @@
-using Android.App;
 using Android.Widget;
-using Android.OS;
 using Android.Support.V7.Widget;
 using Android.Views;
-using KataContactsCSharp.iOS;
 using System;
 
 namespace KataContactsCSharp.Droid
@@ -13,12 +10,12 @@ namespace KataContactsCSharp.Droid
 	{
 		public TextView Caption { get; private set; }
 
-		AgendaPresenter presenter;
+		readonly AgendaPresenter presenter;
 
 		public ContactViewHolder(View itemView, AgendaPresenter presenter, Action<int> listener) : base(itemView)
 		{
 			Caption = itemView.FindViewById<TextView>(Resource.Id.textView);
-			itemView.Click += (sender, e) => listener(base.AdapterPosition);
+			itemView.Click += (sender, e) => listener(AdapterPosition);
 
 			this.presenter = presenter;
 		}

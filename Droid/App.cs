@@ -1,6 +1,4 @@
-﻿using KataContactsCSharp.iOS;
-
-namespace KataContactsCSharp.Droid
+﻿namespace KataContactsCSharp.Droid
 {
 	class App
 	{
@@ -9,6 +7,6 @@ namespace KataContactsCSharp.Droid
 		public static PresenterLocator Locator
 		{
 			get { return locator ?? (locator = new PresenterLocator()); }
-		}	
+		}
 	}
 }

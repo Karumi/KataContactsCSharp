@@ -1,19 +1,14 @@
 ﻿using Android.App;
-using Android.Widget;
 using Android.OS;
 using Android.Support.V7.Widget;
 using System.Collections.Generic;
-using KataContactsCSharp.iOS;
-using System;
 using Android.Support.V7.App;
-using Android.Views;
-using Java.Interop;
 using Android.Support.Design.Widget;
 
 namespace KataContactsCSharp.Droid
 {
 	[Activity(Label = "KataContactsCSharp", MainLauncher = true, Icon = "@mipmap/icon")]
-	public class MainActivity : AppCompatActivity, AgendaPresenter.IAgendaUI
+	public class MainActivity : AppCompatActivity, AgendaPresenter.IView
 	{
 		AgendaPresenter presenter;
 
@@ -27,7 +22,8 @@ namespace KataContactsCSharp.Droid
 			SetContentView(Resource.Layout.Agenda);
 			recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
 			var addButton = FindViewById<FloatingActionButton>(Resource.Id.addButton);
-			addButton.Click += (sender, e) => {
+			addButton.Click += (sender, e) =>
+			{
 				AddConctactActivity.Open(this);
 			};
 
@@ -35,14 +31,14 @@ namespace KataContactsCSharp.Droid
 			InitializePresenter();
 			InitializeAdapter();
 			InitializeRecyclerView();
-			presenter.ViewDidLoad();
+			presenter.Initialize();
 		}
 
 		protected override void OnResume()
 		{
 			base.OnResume();
 
-			presenter.ViewWillAppear();
+			presenter.OnForeground();
 		}
 
 		public void Show(List<Contact> contacts)
