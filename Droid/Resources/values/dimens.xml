@@ -1,0 +1,7 @@
+﻿<resources>
+  <dimen name="default_margin">16dp</dimen>
+  <dimen name="contact_card_elevation">4dp</dimen>
+  <dimen name="contact_card_corner_radius">5dp</dimen>
+  <dimen name="contact_row_padding">8dp</dimen>	
+  <dimen name="contact_row_textview_padding">4dp</dimen>	
+</resources>
