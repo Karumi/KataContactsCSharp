@@ -1665,6 +1665,21 @@ namespace KataContactsCSharp.Droid
 			// aapt resource value: 0x7f08002b
 			public const int cardview_default_radius = 2131230763;
 			
+			// aapt resource value: 0x7f080090
+			public const int contact_card_corner_radius = 2131230864;
+			
+			// aapt resource value: 0x7f08008f
+			public const int contact_card_elevation = 2131230863;
+			
+			// aapt resource value: 0x7f080091
+			public const int contact_row_padding = 2131230865;
+			
+			// aapt resource value: 0x7f080092
+			public const int contact_row_textview_padding = 2131230866;
+			
+			// aapt resource value: 0x7f08008e
+			public const int default_margin = 2131230862;
+			
 			// aapt resource value: 0x7f080008
 			public const int design_appbar_elevation = 2131230728;
 			

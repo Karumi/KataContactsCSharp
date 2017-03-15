@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/default_margin"
         android:src="@drawable/ic_add_black_24dp"
         app:layout_anchor="@id/recyclerView"
         app:layout_anchorGravity="bottom|right|end"

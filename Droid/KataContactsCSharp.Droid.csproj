@@ -120,6 +120,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_add_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_add_black_24dp.png" />
     <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\dimens.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="View\" />
