@@ -1,4 +1,6 @@
 ﻿using Foundation;
+using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
 using UIKit;
 
 namespace KataContactsCSharp.iOS
@@ -18,8 +20,11 @@ namespace KataContactsCSharp.iOS
 
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{
-			// Override point for customization after application launch.
-			// If not required for your application you can safely delete this method
+			var nav = new NavigationService();
+			nav.Initialize(Window.RootViewController as UINavigationController);
+
+			SimpleIoc.Default.Register<INavigationService>(() => nav);
+			SimpleIoc.Default.Register<IDialogService, DialogService>();
 
 			return true;
 		}

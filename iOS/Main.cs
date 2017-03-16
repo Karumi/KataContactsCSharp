@@ -1,14 +1,15 @@
+using KataContactsCSharp.ViewModel;
 using UIKit;
 
 namespace KataContactsCSharp.iOS
 {
 	public class Application
 	{
-		static PresenterLocator locator;
+		static ViewModelLocator locator;
 
-		public static PresenterLocator Locator
+		public static ViewModelLocator Locator
 		{
-			get { return locator ?? (locator = new PresenterLocator()); }
+			get { return locator ?? (locator = new ViewModelLocator()); }
 		}
 
 		// This is the main entry point of the application.

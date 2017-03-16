@@ -1,12 +1,35 @@
-﻿namespace KataContactsCSharp.Droid
+﻿using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
+using KataContactsCSharp.ViewModel;
+
+namespace KataContactsCSharp.Droid
 {
 	class App
 	{
-		static PresenterLocator locator;
+		static ViewModelLocator locator;
 
-		public static PresenterLocator Locator
+		public static ViewModelLocator Locator
 		{
-			get { return locator ?? (locator = new PresenterLocator()); }
+			get 
+			{  
+				if (locator == null) 
+				{ 
+					var nav = new NavigationService();
+					nav.Configure(
+						ViewModelLocator.ContactDetailsPageKey,
+						typeof(ContactDetailActivity));
+					nav.Configure(
+						ViewModelLocator.AddContactPageKey,
+						typeof(AddConctactActivity));
+
+					SimpleIoc.Default.Register<INavigationService>(() => nav);
+					SimpleIoc.Default.Register<IDialogService, DialogService>();
+
+					locator = new ViewModelLocator();
+				}
+
+				return locator;
+			}
 		}
 	}
 }

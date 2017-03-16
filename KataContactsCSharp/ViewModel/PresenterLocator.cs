@@ -26,11 +26,6 @@ namespace KataContactsCSharp
 			}
 		}
 
-		public AgendaPresenter AgendaPresenter(AgendaPresenter.IView agendaViewController)
-		{
-			return new AgendaPresenter(agendaViewController, GetContacts);
-		}
-
 		public AddContactPresenter AddContactPresenter(AddContactPresenter.IView addContactViewController)
 		{
 			return new AddContactPresenter(addContactViewController, AddContact);

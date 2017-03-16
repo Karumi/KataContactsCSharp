@@ -1,36 +1,44 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
+using Android.Views;
+using GalaSoft.MvvmLight.Helpers;
 
 namespace KataContactsCSharp.Droid
 {
 	[Activity(Label = "KataContactsCSharp", MainLauncher = true, Icon = "@mipmap/icon")]
-	public class MainActivity : AppCompatActivity, AgendaPresenter.IView
+	public class MainActivity : AppCompatActivity
 	{
-		AgendaPresenter presenter;
-
-		AgendaAdapter adapter;
+		ObservableRecyclerAdapter<Contact, ContactViewHolder> adapter;
 
 		RecyclerView recyclerView;
 
-		public void Show(List<Contact> contacts)
+		AgendaViewModel ViewModel
 		{
-			adapter.AddAll(contacts);
-			adapter.NotifyDataSetChanged();
+			get { return App.Locator.AgendaViewModel; }
 		}
 
-		public void OpenContactDetailScreen(Contact contact)
+				public void OpenContactDetailScreen(Contact contact)
 		{
 			ContactDetailActivity.Open(this, contact.Id);
+		}
+
+		public void OnItemClick(int oldPosition, View oldView, int position, View view)
+		{
+			ViewModel.ShowContactDetailsCommand.Execute(ViewModel.Contacts[position]);
 		}
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.Agenda);
+
+			adapter = ViewModel.Contacts.GetRecyclerAdapter(BindViewHolder, OnCreateViewHolder, OnItemClick);
+
 			recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
 			var addButton = FindViewById<FloatingActionButton>(Resource.Id.addButton);
 			addButton.Click += (sender, e) =>
@@ -38,28 +46,8 @@ namespace KataContactsCSharp.Droid
 				AddConctactActivity.Open(this);
 			};
 
-			InitializePresenter();
-			InitializeAdapter();
 			InitializeRecyclerView();
-			presenter.Initialize();
-		}
-
-		protected override void OnResume()
-		{
-			base.OnResume();
-
-			presenter.OnForeground();
-		}
-
-		void InitializePresenter()
-		{
-			presenter = App.Locator.AgendaPresenter(this);
-		}
-
-		void InitializeAdapter()
-		{
-			adapter = new AgendaAdapter(presenter);
-			adapter.ItemClick += OnItemClick;
+			ViewModel.Initialize();
 		}
 
 		void InitializeRecyclerView()
@@ -69,10 +57,17 @@ namespace KataContactsCSharp.Droid
 			recyclerView.HasFixedSize = true;
 			recyclerView.SetAdapter(adapter);
 		}
-
-		void OnItemClick(object sender, Contact contact)
+						
+		void BindViewHolder(ContactViewHolder holder, Contact contact, int position)
 		{
-			ContactDetailActivity.Open(this, contact.Id);
+			holder.Caption.Text = contact.FirstName;
+		}
+
+		ContactViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+		{
+			var itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.ConcactCardView, parent, false);
+
+			return new ContactViewHolder(itemView);
 		}
 	}
 }
