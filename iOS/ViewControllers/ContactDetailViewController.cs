@@ -1,27 +1,46 @@
 using System;
+using System.Collections.Generic;
+using GalaSoft.MvvmLight.Helpers;
+using GalaSoft.MvvmLight.Views;
+using Microsoft.Practices.ServiceLocation;
 using UIKit;
 
 namespace KataContactsCSharp.iOS
 {
-	public partial class ContactDetailViewController : UIViewController, ContactDetailPresenter.IView
+	public partial class ContactDetailViewController : UIViewController
 	{
 		public ContactDetailViewController(IntPtr handle) : base(handle)
 		{
 		}
 
-		public ContactDetailPresenter Presenter { get; internal set; }
+		NavigationService Nav => ServiceLocator.Current.GetInstance<INavigationService>() as NavigationService;
+
+		ContactDetailViewModel ViewModel
+		{
+			get { return Application.Locator.ContactDetailViewModel; }
+		}
 
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			Presenter.Initialize();
+
+			this.SetBindings();
+
+			var id = (string) Nav.GetAndRemoveParameter(this);
+			ViewModel.Initialize(id);
 		}
 
-		public void Show(Contact contact)
+		void SetBindings() 
 		{
-			FirstnameLabel.Text = contact.FirstName;
-			LastNameLabel.Text = contact.LastName;
-			PhonenumberLabel.Text = contact.PhoneNumber;
+			this.SetBinding(
+				() => ViewModel.Model.FirstName,
+				() => FirstnameLabel.Text);
+			this.SetBinding(
+				() => ViewModel.Model.LastName,
+				() => LastNameLabel.Text);
+			this.SetBinding(
+				() => ViewModel.Model.PhoneNumber,
+				() => PhonenumberLabel.Text);
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using Foundation;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
+using KataContactsCSharp.ViewModel;
 using UIKit;
 
 namespace KataContactsCSharp.iOS
@@ -22,6 +23,9 @@ namespace KataContactsCSharp.iOS
 		{
 			var nav = new NavigationService();
 			nav.Initialize(Window.RootViewController as UINavigationController);
+			nav.Configure(ViewModelLocator.AgendaPageKey, "AgendaViewController");
+			nav.Configure(ViewModelLocator.AddContactPageKey, "AddContactViewController");
+			nav.Configure(ViewModelLocator.ContactDetailsPageKey, "ContactDetailViewController");
 
 			SimpleIoc.Default.Register<INavigationService>(() => nav);
 			SimpleIoc.Default.Register<IDialogService, DialogService>();

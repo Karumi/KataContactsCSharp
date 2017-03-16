@@ -16,7 +16,7 @@ namespace KataContactsCSharp.iOS
 		{
 		}
 
-		private AgendaViewModel ViewModel
+		AgendaViewModel ViewModel
 		{
 			get { return Application.Locator.AgendaViewModel; }
 		}
@@ -34,7 +34,7 @@ namespace KataContactsCSharp.iOS
 			tableView.AllowsSelection = true;
 
 			tableSource.SelectionChanged +=
-				           (s, e) => ViewModel.ShowContactDetailsCommand.Execute(tableSource.SelectedItem);
+						   (s, e) => ViewModel.ShowContactDetailsCommand.Execute(tableSource.SelectedItem);
 
 			base.ViewDidLoad();
 		}

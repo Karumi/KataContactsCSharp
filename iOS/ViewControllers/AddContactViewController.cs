@@ -1,24 +1,40 @@
 using System;
+using GalaSoft.MvvmLight.Helpers;
 using UIKit;
 
 namespace KataContactsCSharp.iOS
 {
-	public partial class AddContactViewController : UIViewController, AddContactPresenter.IView
+	public partial class AddContactViewController : UIViewController
 	{
 		public AddContactViewController(IntPtr handle) : base(handle)
 		{
 		}
 
-		internal AddContactPresenter Presenter { get; set; }
-
-		async partial void DoneButtonClicked(UIBarButtonItem sender)
+		internal AddContactViewModel ViewModel 
 		{
-			var firstname = firstNameTextField.Text;
-			var lastname = lastNameTextField.Text;
-			var phonenumber = phonenumberTextField.Text;
+			get { return Application.Locator.AddContactViewModel; }
+		}
 
-			await Presenter.Add(firstname, lastname, phonenumber);
-			NavigationController.PopViewController(true);
+		public override void ViewDidLoad()
+		{ 
+			DoneButton.SetCommand(ViewModel.SaveCommand);
+			this.SetBindings();		
+		}
+
+		void SetBindings()
+		{
+			this.SetBinding(
+				() => ViewModel.Model.FirstName,
+				() => firstNameTextField.Text,
+				BindingMode.TwoWay);
+			this.SetBinding(
+				() => ViewModel.Model.LastName,
+				() => lastNameTextField.Text,
+				BindingMode.TwoWay);
+			this.SetBinding(
+				() => ViewModel.Model.PhoneNumber,
+				() => phonenumberTextField.Text,
+				BindingMode.TwoWay);
 		}
 	}
 }

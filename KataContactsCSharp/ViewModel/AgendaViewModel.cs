@@ -36,7 +36,7 @@ namespace KataContactsCSharp
 
 		void ItemSelected(Contact contact)
 		{
-			this.navigationService.NavigateTo(ViewModelLocator.ContactDetailsPageKey, contact);
+			this.navigationService.NavigateTo(ViewModelLocator.ContactDetailsPageKey, contact.Id);
 		}
 
 		void AddItem()

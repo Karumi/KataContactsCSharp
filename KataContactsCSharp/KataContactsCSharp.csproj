@@ -35,9 +35,8 @@
     <Compile Include="Use Cases\Repositories\ContactRepository.cs" />
     <Compile Include="Use Cases\Repositories\IDatasource.cs" />
     <Compile Include="DataSources\ContactDataSource.cs" />
-    <Compile Include="ViewModel\AddContactPresenter.cs" />
-    <Compile Include="ViewModel\ContactDetailPresenter.cs" />
-    <Compile Include="ViewModel\PresenterLocator.cs" />
+    <Compile Include="ViewModel\AddContactViewModel.cs" />
+    <Compile Include="ViewModel\ContactDetailViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\AgendaViewModel.cs" />
   </ItemGroup>

@@ -13,7 +13,7 @@
         <!--Agenda View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AgendaViewController" sceneMemberID="viewController" automaticallyAdjustsScrollViewInsets="NO">
+                <viewController id="BYZ-38-t0r" customClass="AgendaViewController" sceneMemberID="viewController" automaticallyAdjustsScrollViewInsets="NO" storyboardIdentifier="AgendaViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -197,6 +197,7 @@
                         <outlet property="firstNameTextField" destination="YLV-7s-Nzc" id="name-outlet-YLV-7s-Nzc"/>
                         <outlet property="lastNameTextField" destination="zIn-QI-UOx" id="name-outlet-zIn-QI-UOx"/>
                         <outlet property="phonenumberTextField" destination="Dql-Ab-BAa" id="name-outlet-Dql-Ab-BAa"/>
+                        <outlet property="DoneButton" destination="Ako-KQ-bNC" id="name-outlet-Ako-KQ-bNC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pha-Q9-fUZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

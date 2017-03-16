@@ -22,7 +22,7 @@ namespace KataContactsCSharp.Droid
 			get { return App.Locator.AgendaViewModel; }
 		}
 
-				public void OpenContactDetailScreen(Contact contact)
+		public void OpenContactDetailScreen(Contact contact)
 		{
 			ContactDetailActivity.Open(this, contact.Id);
 		}

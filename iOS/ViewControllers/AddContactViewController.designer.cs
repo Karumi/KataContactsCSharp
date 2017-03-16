@@ -16,6 +16,10 @@ namespace KataContactsCSharp.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIBarButtonItem DoneButton { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField firstNameTextField { get; set; }
 
         [Outlet]
@@ -32,6 +36,11 @@ namespace KataContactsCSharp.iOS
 
         void ReleaseDesignerOutlets ()
         {
+            if (DoneButton != null) {
+                DoneButton.Dispose ();
+                DoneButton = null;
+            }
+
             if (firstNameTextField != null) {
                 firstNameTextField.Dispose ();
                 firstNameTextField = null;

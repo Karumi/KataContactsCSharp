@@ -23,7 +23,7 @@ namespace KataContactsCSharp.iOS
 
         [Action ("buttonAddOnClick:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void ButtonAddOnClick (UIKit.UIBarButtonItem sender);
+        partial void buttonAddOnClick (UIKit.UIBarButtonItem sender);
 
         void ReleaseDesignerOutlets ()
         {

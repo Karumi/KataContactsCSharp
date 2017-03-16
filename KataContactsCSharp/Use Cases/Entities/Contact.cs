@@ -1,8 +1,9 @@
 using System;
+using GalaSoft.MvvmLight;
 
 namespace KataContactsCSharp
 {
-	public class Contact
+	public class Contact : ObservableObject
 	{
 		public Contact(string firstName, string lastName, string phoneNumber)
 		{
@@ -12,12 +13,77 @@ namespace KataContactsCSharp
 			PhoneNumber = phoneNumber;
 		}
 
-		public string FirstName { get; }
+		public Contact()
+		{
+			Id = Guid.NewGuid().ToString();
+		}
+		string firstName;
 
-		public string Id { get; set; }
+		public string FirstName
+		{
+			get
+			{
+				return firstName;
+			}
 
-		public string LastName { get; }
+			set
+			{
+				if (Set(ref firstName, value)) 
+				{
+					HasChanges = true;
+				}
+			}
+		}
 
-		public string PhoneNumber { get; }
+		public string Id { get; private set; }
+		string lastName;
+
+		public string LastName
+		{
+			get
+			{
+				return lastName;
+			}
+
+			set
+			{
+				if (Set(ref lastName, value))
+				{
+					HasChanges = true;
+				}			
+			}
+		}
+
+		string phoneNumber;
+
+		public string PhoneNumber
+		{
+			get
+			{
+				return phoneNumber;
+			}
+
+			set
+			{
+				if (Set(ref phoneNumber, value))
+				{
+					HasChanges = true;
+				}			
+			}
+		}
+		bool hasChanges;
+
+		public bool HasChanges
+		{
+			get
+			{
+				return hasChanges;
+			}
+
+			internal set
+			{
+				Set(ref hasChanges, value);
+			}
+		}
 	}
 }

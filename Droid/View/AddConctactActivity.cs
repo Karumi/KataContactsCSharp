@@ -7,9 +7,9 @@ using Android.Widget;
 namespace KataContactsCSharp.Droid
 {
 	[Activity(Label = "AddConctactActivity")]
-	public class AddConctactActivity : AppCompatActivity, AddContactPresenter.IView
+	public class AddConctactActivity : AppCompatActivity
 	{
-		AddContactPresenter presenter;
+		AddContactViewModel presenter;
 
 		internal static void Open(Context context)
 		{

@@ -7,10 +7,10 @@ using Android.Widget;
 namespace KataContactsCSharp.Droid
 {
 	[Activity(Label = "ContactDetailActivity")]
-	public class ContactDetailActivity : Activity, ContactDetailPresenter.IView
+	public class ContactDetailActivity : Activity
 	{
 		const string ContactIdKey = "contact_id_key";
-		ContactDetailPresenter presenter;
+		ContactDetailViewModel presenter;
 
 		public void Show(Contact contact)
 		{
@@ -36,8 +36,8 @@ namespace KataContactsCSharp.Droid
 		async Task InitializePresenter()
 		{
 			var contactId = GetContactId();
-			presenter = App.Locator.ContactDetailPresenter(contactId, this);
-			await presenter.Initialize();
+			//presenter = App.Locator.ContactDetailPresenter(contactId, this);
+			//await presenter.Initialize();
 		}
 
 		string GetContactId()
